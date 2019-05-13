@@ -4,12 +4,13 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: "app.js"
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src/components'),
+      components: path.join(__dirname, 'src/components'),
+      views: path.join(__dirname, 'src/views'),
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.scss']

@@ -10,7 +10,7 @@ module.exports = {
   resolve: {
     alias: {
       components: path.join(__dirname, 'src/components'),
-      views: path.join(__dirname, 'src/views'),
+      routers: path.join(__dirname, 'src/routers'),
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.scss']

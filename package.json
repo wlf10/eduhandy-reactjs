@@ -4,7 +4,7 @@
   "description": "Timetable of classes",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --hot --history-api-fallback --mode development",
     "build": "webpack --mode production"
   },
   "repository": {

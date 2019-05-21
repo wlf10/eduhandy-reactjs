@@ -15,8 +15,11 @@ import Divider from '@material-ui/core/Divider';
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+
+import HomeIcon from '@material-ui/icons/Home';
+import ScheduleIcon from '@material-ui/icons/CalendarToday';
+import PeopleIcon from '@material-ui/icons/People';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const drawerWidth = 240;
 
@@ -75,21 +78,33 @@ class Sidebar extends React.Component {
           </div>
           <Divider />
           <List>
-            {['Dashboard', 'Расписание', 'Преподаватели', 'Кабинеты'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem button key="Dash">
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dash" />
+            </ListItem>
+            <ListItem button key="Расписание">
+                <ListItemIcon>
+                  <ScheduleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Расписание" />
+            </ListItem>
+            <ListItem button key="Преподаватели">
+                <ListItemIcon>
+                  <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Преподаватели" />
+            </ListItem>
           </List>
           <Divider />
           <List>
-            {['Настройки'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+            <ListItem button key="Настройки">
+                  <ListItemIcon>
+                    <SettingsIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Настройки" />
               </ListItem>
-            ))}
           </List>
         </Drawer>
     )

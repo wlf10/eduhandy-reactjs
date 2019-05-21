@@ -50,16 +50,8 @@ const styles = theme => ({
 });
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    // Don't do this!
-    this.state = {
-      open: true
-    };
-  };
-
   render() {
-    const { classes, theme, isOpen } = this.props;
+    const { classes, theme, isOpen, closeSidebar } = this.props;
 
     return (
       <Drawer
@@ -77,7 +69,7 @@ class Sidebar extends React.Component {
           open={isOpen}
         >
           <div className={classes.toolbar}>
-            <IconButton onClick={this.handleDrawerClose}>
+            <IconButton onClick={ closeSidebar }>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
           </div>
@@ -116,4 +108,10 @@ const mapStateToProps = function(state) {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps)(Sidebar));
+const mapDispatchToProps = function(dispatch) {
+  return {
+    closeSidebar: () => dispatch({ type: 'CLOSE_SIDEBAR' }),
+  }
+}
+
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, mapDispatchToProps)(Sidebar));

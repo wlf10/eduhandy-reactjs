@@ -19,6 +19,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  hide: {
+    display: 'none',
+  },
   grow: {
     flexGrow: 1,
   },
@@ -78,7 +81,13 @@ class Header extends React.Component {
           })}
         >
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton
+              className={classNames(classes.menuButton, {
+                [classes.hide]: sidebar.isOpen,
+              })}
+              color="inherit"
+              aria-label="Menu"
+            >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>

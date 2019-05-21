@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -23,6 +24,10 @@ function Subjects(props) {
 
   return (
     <div>
+      <Typography variant="h6" id="tableTitle">
+        Предменты
+      </Typography>
+
       <Paper className={classes.root}>
         <Table className={classes.table}>
           <TableHead>

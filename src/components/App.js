@@ -25,6 +25,7 @@ const App = () =>
     <BrowserRouter>
       <Fragment>
           <Header />
+          <Sidebar />
           <Switch>
             <Route exact path='/' component={Dashboard} />
             <Route path='/educations' component={Educations} />

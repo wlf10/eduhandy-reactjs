@@ -1,7 +1,7 @@
 import { CLOSE_SIDEBAR, OPEN_SIDEBAR } from './constants';
 
 const initialState = {
-  isOpen: false
+  isOpen: true
 };
 
 export default function sidebar(state = initialState, { type }) {

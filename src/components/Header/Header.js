@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
@@ -64,13 +65,18 @@ class Header extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, sidebar } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar
+          position="fixed"
+          className={classNames(classes.appBar, {
+            [classes.appBarShift]: sidebar.isOpen,
+          })}
+        >
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
@@ -116,11 +122,12 @@ class Header extends React.Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
+  sidebar: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = function(state) {
   return {
-    isOpen: state.sidebar.isOpen
+    sidebar: state.sidebar
   }
 }
 

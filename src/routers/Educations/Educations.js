@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
@@ -18,8 +19,8 @@ const styles = theme => ({
   },
 });
 
-function Subjects(props) {
-  const { classes, subjects } = props;
+function Educations(props) {
+  const { classes, educations } = props;
 
   return (
     <div>
@@ -31,7 +32,7 @@ function Subjects(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {subjects.map(row => (
+            {educations.map(row => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
                   {row.name}
@@ -45,15 +46,15 @@ function Subjects(props) {
   );
 }
 
-Subjects.propTypes = {
+Educations.propTypes = {
   classes: PropTypes.object.isRequired,
-  subjects: PropTypes.array.isRequired,
+  educations: PropTypes.array.isRequired
 };
 
 const mapStateToProps = function(state) {
   return {
-    subjects: state.subjects
+    educations: state.educations.educations
   }
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Subjects));
+export default withStyles(styles)(connect(mapStateToProps)(Educations));

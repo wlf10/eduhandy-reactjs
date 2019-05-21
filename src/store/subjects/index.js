@@ -1,6 +1,12 @@
 const initialState = [
-    'Математика',
-    'Информатика'
+  {
+    id: 1,
+    name: 'Математика'
+  },
+  {
+    id: 2,
+    name: 'Информатика'
+  }
 ];
 
 export default function subjects(state = initialState, action) {

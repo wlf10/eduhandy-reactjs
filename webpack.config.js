@@ -11,6 +11,7 @@ module.exports = {
     alias: {
       components: path.join(__dirname, 'src/components'),
       routers: path.join(__dirname, 'src/routers'),
+      store: path.join(__dirname, 'src/store'),
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.scss']

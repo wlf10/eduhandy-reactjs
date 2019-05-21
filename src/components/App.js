@@ -12,9 +12,9 @@ import Dashboard from 'routers/Dashboard';
 import Subjects from 'routers/Subjects';
 import Educations from 'routers/Educations';
 
-import rootReducer from '../store';
+import rootReducer from 'store';
 
-import { fetchAllSubjects } from '../store/subjects/actions';
+import { fetchAllSubjects } from 'store/subjects/actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

@@ -5,10 +5,10 @@ const apiUrl = 'https://rasp.bitwolff.com/api/v1/subjects/';
 
 export const fetchSubjects = (subjects) => {
   return {
-      type: FETCH_SUBJECT,
-      subjects
-    }
-  };
+    type: FETCH_SUBJECT,
+    subjects
+  }
+};
 
 export const fetchAllSubjects = () => {
   return (dispatch) => {

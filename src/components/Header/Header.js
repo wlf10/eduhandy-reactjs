@@ -68,7 +68,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { classes, sidebar } = this.props;
+    const { classes, isOpenSidebar, openSidebar} = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -77,13 +77,14 @@ class Header extends React.Component {
         <AppBar
           position="fixed"
           className={classNames(classes.appBar, {
-            [classes.appBarShift]: sidebar.isOpen,
+            [classes.appBarShift]: isOpenSidebar,
           })}
         >
           <Toolbar>
             <IconButton
+              onClick={openSidebar}
               className={classNames(classes.menuButton, {
-                [classes.hide]: sidebar.isOpen,
+                [classes.hide]: isOpenSidebar,
               })}
               color="inherit"
               aria-label="Menu"
@@ -131,13 +132,19 @@ class Header extends React.Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
-  sidebar: PropTypes.object.isRequired,
+  isOpenSidebar: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = function(state) {
   return {
-    sidebar: state.sidebar
+    isOpenSidebar: state.ui.isOpenSidebar
   }
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Header));
+const mapDispatchToProps = function(dispatch) {
+  return {
+    openSidebar: () => dispatch({ type: 'OPEN_SIDEBAR' }),
+  }
+}
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Header));

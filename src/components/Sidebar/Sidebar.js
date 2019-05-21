@@ -107,11 +107,12 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = function(state) {
   return {
-    isOpen: state.sidebar.isOpen
+    isOpen: state.ui.isOpenSidebar
   }
 }
 

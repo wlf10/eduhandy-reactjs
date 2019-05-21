@@ -1,15 +1,15 @@
 import { CLOSE_SIDEBAR, OPEN_SIDEBAR } from './constants';
 
 const initialState = {
-  isOpen: true
+  isOpenSidebar: false
 };
 
-export default function sidebar(state = initialState, { type }) {
+export default function ui(state = initialState, { type }) {
   switch (type) {
     case CLOSE_SIDEBAR:
-      return { ...state, isOpen: false };
+      return { ...state, isOpenSidebar: false };
     case OPEN_SIDEBAR:
-      return { isOpen: true };
+      return { isOpenSidebar: true };
   }
 
   return state;

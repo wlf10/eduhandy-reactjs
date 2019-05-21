@@ -1,0 +1,4 @@
+export const ADD_SUBJECT = 'ADD_SUBJECT';
+export const UPDATE_SUBJECT = 'UPDATE_SUBJECT';
+export const DELETE_SUBJECT = 'DELETE_SUBJECT';
+export const FETCH_SUBJECT = 'FETCH_SUBJECT';

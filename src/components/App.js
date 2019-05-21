@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
@@ -13,7 +14,11 @@ import Educations from 'routers/Educations';
 
 import rootReducer from '../store';
 
-const store = createStore(rootReducer);
+import { fetchAllSubjects } from '../store/subjects/actions';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+store.dispatch(fetchAllSubjects());
 
 const App = () =>
   <Provider store={store}>

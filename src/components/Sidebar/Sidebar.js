@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -59,12 +59,12 @@ class Sidebar extends React.Component {
     return (
       <Drawer
           variant="permanent"
-          className={classNames(classes.drawer, {
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: isOpen,
             [classes.drawerClose]: !isOpen,
           })}
           classes={{
-            paper: classNames({
+            paper: clsx({
               [classes.drawerOpen]: isOpen,
               [classes.drawerClose]: !isOpen,
             }),

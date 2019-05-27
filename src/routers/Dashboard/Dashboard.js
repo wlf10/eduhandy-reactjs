@@ -12,7 +12,7 @@ const styles = theme => ({
   },
 });
 
-function Dashboard(props) {
+const Dashboard = (props) => {
   const { classes } = props;
 
   return (

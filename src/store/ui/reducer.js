@@ -4,6 +4,8 @@ const initialState = {
   isOpenSidebar: false
 };
 
+// [CLOSE_SIDEBAR]: (state) => ()
+
 export default function ui(state = initialState, { type }) {
   switch (type) {
     case CLOSE_SIDEBAR:

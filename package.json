@@ -19,7 +19,7 @@
   "homepage": "https://github.com/wlf10/eduhandy#readme",
   "dependencies": {
     "@material-ui/core": "^4.0.0",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/icons": "^4.0.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
@@ -29,7 +29,8 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

@@ -133,6 +133,7 @@ class Header extends React.Component {
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   isOpenSidebar: PropTypes.bool.isRequired,
+  openSidebar: PropTypes.func
 };
 
 const mapStateToProps = function(state) {

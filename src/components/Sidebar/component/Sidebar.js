@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import clsx from 'clsx';
-import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -120,16 +119,4 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const mapStateToProps = function(state) {
-  return {
-    isOpen: state.ui.isOpenSidebar
-  }
-}
-
-const mapDispatchToProps = function(dispatch) {
-  return {
-    closeSidebar: () => dispatch({ type: 'CLOSE_SIDEBAR' }),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;

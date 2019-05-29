@@ -1,5 +1,3 @@
-import Sidebar from './Sidebar';
-
-import { withRouter } from "react-router-dom";
+import Sidebar from './container/Sidebar';
 
 export default Sidebar;

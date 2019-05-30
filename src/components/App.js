@@ -12,11 +12,13 @@ import themes, { overrides } from '../themes';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
 
-import Dashboard from 'routers/Dashboard';
-import Subjects from 'routers/Subjects';
-import Members from 'routers/Members';
-import Educations from 'routers/Educations';
-import Schedule from 'routers/Schedule';
+import Dashboard from 'routes/Dashboard';
+import Subjects from 'routes/Subjects';
+import Members from 'routes/Members';
+import Educations from 'routes/Educations';
+import Schedule from 'routes/Schedule';
+
+import Settings from 'routes/Settings';
 
 import rootReducer from 'store';
 
@@ -40,6 +42,8 @@ const App = () =>
             <Route path='/educations' component={Educations} />
             <Route path='/members' component={Members} />
             <Route path='/subjects' component={Subjects} />
+
+            <Route path='/settings' component={Settings} />
           </Switch>
       </div>
     </BrowserRouter>

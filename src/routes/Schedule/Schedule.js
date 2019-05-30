@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
       flexGrow: 1,
+      width: '100%',
       padding: theme.spacing(3),
     },
   }));
@@ -38,20 +39,18 @@ const Schedule = () => {
     return (
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.</Paper>
+        <Grid container spacing={3}>
+          <Grid item xs>
+            <Paper className={classes.paper}>Расписание </Paper>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs>
+            <Calendar />
+          </Grid>
         </Grid>
 
-        <Calendar />
+        
 
       </main>
     );

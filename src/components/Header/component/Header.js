@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,41 +11,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-const drawerWidth = 240;
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  hide: {
-    display: 'none',
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    })
-  }
-});
 
 class Header extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -136,16 +101,4 @@ Header.propTypes = {
   openSidebar: PropTypes.func
 };
 
-const mapStateToProps = function(state) {
-  return {
-    isOpenSidebar: state.ui.isOpenSidebar
-  }
-}
-
-const mapDispatchToProps = function(dispatch) {
-  return {
-    openSidebar: () => dispatch({ type: 'OPEN_SIDEBAR' }),
-  }
-}
-
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default Header;

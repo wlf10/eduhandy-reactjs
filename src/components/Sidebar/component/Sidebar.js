@@ -27,8 +27,8 @@ import RoomIcon from '@material-ui/icons/LocalLibrary';
 import TemplateIcon from '@material-ui/icons/DateRange';
 
 
-const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings }) => {
-  const classes = useStyles();
+const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings, classes }) => {
+  //const classes = useStyles();
 
   return (
     <Drawer
@@ -120,43 +120,5 @@ Sidebar.propTypes = {
   closeSidebar: PropTypes.func,
   toggleSettings: PropTypes.func,
 };
-
-const drawerWidth = 240;
-const useStyles = makeStyles(theme => ({
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(7) + 1,
-    },
-  },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
 
 export default Sidebar;

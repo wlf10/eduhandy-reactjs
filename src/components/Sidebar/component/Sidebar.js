@@ -11,15 +11,23 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Collapse from '@material-ui/core/Collapse';
 
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import HomeIcon from '@material-ui/icons/Home';
 import ScheduleIcon from '@material-ui/icons/CalendarToday';
-import PeopleIcon from '@material-ui/icons/People';
+import EventIcon from '@material-ui/icons/Event';
+
 import SettingsIcon from '@material-ui/icons/Settings';
+import PersonIcon from '@material-ui/icons/Person';
+import GroupIcon from '@material-ui/icons/Group';
+import RoomIcon from '@material-ui/icons/LocalLibrary';
+import TemplateIcon from '@material-ui/icons/DateRange';
 
 
-const Sidebar = ({ isOpen, closeSidebar }) => {
+const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings }) => {
   const classes = useStyles();
 
   return (
@@ -50,27 +58,57 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </ListItemIcon>
               <ListItemText primary="Dash" />
           </ListItem>
-          <ListItem button key="Расписание"  component={Link} to="/schedule">
+          <ListItem button key="schedule"  component={Link} to="/schedule">
               <ListItemIcon>
                 <ScheduleIcon />
               </ListItemIcon>
               <ListItemText primary="Расписание" />
           </ListItem>
-          <ListItem button key="Преподаватели" component={Link} to="/members">
+          <ListItem button key="correct"  component={Link} to="/correct">
               <ListItemIcon>
-                <PeopleIcon />
+                <EventIcon />
               </ListItemIcon>
-              <ListItemText primary="Преподаватели" />
+              <ListItemText primary="Замены" />
           </ListItem>
         </List>
         <Divider />
         <List>
-          <ListItem button key="Настройки"  component={Link} to="/settings">
+          <ListItem button key="settings" onClick={toggleSettings}>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Настройки" />
+            {isOpenSettings ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={isOpenSettings} timeout="auto" unmountOnExit>
+            <Divider />
+            <List component="div" disablePadding>
+              <ListItem button key="members" component={Link} to="/members">
                 <ListItemIcon>
-                  <SettingsIcon />
+                  <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="Настройки" />
-            </ListItem>
+                <ListItemText primary="Преподаватели" />
+              </ListItem>
+              <ListItem button key="groups" component={Link} to="/groups">
+                <ListItemIcon>
+                  <GroupIcon />
+                </ListItemIcon>
+                <ListItemText primary="Группы" />
+              </ListItem>
+              <ListItem button key="rooms" component={Link} to="/rooms">
+                <ListItemIcon>
+                  <RoomIcon />
+                </ListItemIcon>
+                <ListItemText primary="Кабинеты" />
+              </ListItem>
+              <ListItem button key="template" component={Link} to="/template">
+                <ListItemIcon>
+                  <TemplateIcon />
+                </ListItemIcon>
+                <ListItemText primary="Расписание на неделю" />
+              </ListItem>
+            </List>
+          </Collapse>
         </List>
       </Drawer>
   )
@@ -78,7 +116,9 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
 Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  isOpenSettings: PropTypes.bool.isRequired,
   closeSidebar: PropTypes.func,
+  toggleSettings: PropTypes.func,
 };
 
 const drawerWidth = 240;

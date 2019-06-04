@@ -1,18 +1,31 @@
-import { CLOSE_SIDEBAR, OPEN_SIDEBAR } from './constants';
+import {
+  CLOSE_SIDEBAR,
+  OPEN_SIDEBAR,
+  TOGGLE_SETTINGS
+} from './constants';
 
 const initialState = {
-  isOpenSidebar: false
+  isOpenSidebar: false,
+  isOpenSettings: false,
 };
 
-// [CLOSE_SIDEBAR]: (state) => ()
+const uiReducerMap = {
+  [CLOSE_SIDEBAR]: (state, action) => {
+    return { ...state, isOpenSidebar: false };
+  },
+  [OPEN_SIDEBAR]: (state, action) => {
+    return { ...state, isOpenSidebar: true };
+  },
+  [TOGGLE_SETTINGS]: (state, action) => {
+    return { ...state, isOpenSettings: !state.isOpenSettings };
+  },
+};
 
-export default function ui(state = initialState, { type }) {
-  switch (type) {
-    case CLOSE_SIDEBAR:
-      return { ...state, isOpenSidebar: false };
-    case OPEN_SIDEBAR:
-      return { isOpenSidebar: true };
+export default function ui(state = initialState, action) {
+  const reducer = uiReducerMap[action.type];
+  if (!reducer) {
+    return state;
   }
 
-  return state;
+  return reducer(state, action);
 }

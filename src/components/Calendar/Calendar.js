@@ -175,24 +175,22 @@ class Calendar extends Component {
             />
             <TextField
               margin="dense"
-              id="start"
-              defaultValue="08:30"
-              label="Start"
+              label="Start time"
               type="time"
-              onChange={e => {
-                this.setDescription(e.target.value);
-              }}
+              fullWidth
+              minutesStep={5}
+              value={this.state.start}
+              onChange={this.handleStartTime}
             />
             <TextField
               margin="dense"
-              id="finish"
+              id="end"
               defaultValue="10:20"
-              label="Finish"
+              label="End time"
               type="time"
-              
-              onChange={e => {
-                this.setDescription(e.target.value);
-              }}
+              fullWidth
+              value={this.state.end}
+              onChange={this.handleEndTime}
             />
           </DialogContent>
           <DialogActions>
@@ -242,6 +240,24 @@ class Calendar extends Component {
               onChange={e => {
                 this.setDescription(e.target.value);
               }}
+            />
+            <TextField
+              margin="dense"
+              id="start"
+              label="Start"
+              type="time"
+              minutesStep={5}
+              value={this.state.start}
+              onChange={this.handleStartTime}
+            />
+            <TextField
+              margin="dense"
+              id="end"
+              label="End"
+              type="time"
+              minutesStep={5}
+              value={this.state.end}
+              onChange={this.handleEndTime}
             />
           </DialogContent>
           <DialogActions>

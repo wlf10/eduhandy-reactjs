@@ -19,6 +19,7 @@ import Correct from 'routes/Correct';
 import Settings from 'routes/Settings';
 import Subjects from 'routes/Subjects';
 import Members from 'routes/Members';
+import Groups from 'routes/Groups';
 import Educations from 'routes/Educations';
 
 import rootReducer from 'store';
@@ -138,6 +139,7 @@ const App = ({classes}) =>
               <Route path='/educations' component={Educations} />
               <PropsRoute path='/members' component={Members} classes={classes} />
               <PropsRoute path='/subjects' component={Subjects} classes={classes} />
+              <PropsRoute path='/groups' component={Groups} classes={classes} />
             </Switch>
           </main>
       </div>

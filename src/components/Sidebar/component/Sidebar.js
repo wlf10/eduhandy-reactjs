@@ -22,6 +22,7 @@ import EventIcon from '@material-ui/icons/Event';
 
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
+import SubjectsIcon from '@material-ui/icons/Layers';
 import GroupIcon from '@material-ui/icons/Group';
 import RoomIcon from '@material-ui/icons/LocalLibrary';
 import TemplateIcon from '@material-ui/icons/DateRange';
@@ -88,6 +89,12 @@ const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings, classes
                   <PersonIcon />
                 </ListItemIcon>
                 <ListItemText primary="Преподаватели" />
+              </ListItem>
+              <ListItem button key="subjects" component={Link} to="/subjects">
+                <ListItemIcon>
+                  <SubjectsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Предметы" />
               </ListItem>
               <ListItem button key="groups" component={Link} to="/groups">
                 <ListItemIcon>

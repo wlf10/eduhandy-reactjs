@@ -26,6 +26,7 @@
     "cldr-data": "^35.1.0",
     "globalize": "^1.4.2",
     "globalize-webpack-plugin": "^3.0.0",
+    "material-table": "^1.39.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

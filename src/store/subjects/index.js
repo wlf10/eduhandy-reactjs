@@ -1,15 +1,15 @@
 import { ADD_SUBJECT, DELETE_SUBJECT, FETCH_SUBJECT } from './constants';
 
-const initialState = [
-  {
-    id: 1,
-    name: 'Математика'
-  },
-  {
-    id: 2,
-    name: 'Информатика'
-  }
-];
+const initialState = {
+  columns: [
+    { title: 'Name', field: 'name' },
+    { title: 'Fullname', field: 'fullname' },
+  ],
+  data: [
+    { name: 'Математика', fullname: 'Математика'},
+    { name: 'Информатика', fullname: 'Информатика'},
+  ],
+};
 
 export default function subjects(state = initialState, action) {
   if (action.type === ADD_SUBJECT) {

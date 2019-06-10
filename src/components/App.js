@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, withStyles } from '@material-ui/core/styles';
 import themes, { overrides } from '../themes';
 
 import Header from 'components/Header';
@@ -28,10 +28,8 @@ import { fetchAllSubjects } from 'store/subjects/actions';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 const theme = createMuiTheme({...themes.default, ...overrides});
 
-store.dispatch(fetchAllSubjects());
-
 const drawerWidth = 260;
-const useStyles = makeStyles(theme => ({
+const styles = {
   root: {
     flexGrow: 1,
   },
@@ -90,33 +88,61 @@ const useStyles = makeStyles(theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
+  appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
+    width: '100%',
     padding: theme.spacing(3),
   },
-}));
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+  },
+};
 
-const App = () =>
+const renderMergedProps = (component, ...rest) => {
+  const finalProps = Object.assign({}, ...rest);
+  return (
+    React.createElement(component, finalProps)
+  );
+}
+
+const PropsRoute = ({ component, ...rest }) => {
+  return (
+    <Route {...rest} render={routeProps => {
+      return renderMergedProps(component, routeProps, rest);
+    }}/>
+  );
+}
+
+const App = ({classes}) =>
   <Provider store={store}>
     <ThemeProvider theme={theme}>
     <BrowserRouter>
       <div style={{display: "flex"}}>
-          <Header classes={useStyles()} />
-          <Sidebar classes={useStyles()} />
-          <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route path='/schedule' component={Schedule} />
-            <Route path='/correct' component={Correct} />
+          <Header classes={classes} />
+          <Sidebar classes={classes} />
+          <main className={classes.content}>
+            <Switch>
+              <Route exact path='/' component={Dashboard} />
+              <Route path='/schedule' component={Schedule} />
+              <Route path='/correct' component={Correct} />
 
-            <Route path='/settings' component={Settings} />
-            <Route path='/educations' component={Educations} />
-            <Route path='/members' component={Members} />
-            <Route path='/subjects' component={Subjects} />
-
-          </Switch>
+              <Route path='/settings' component={Settings} />
+              <Route path='/educations' component={Educations} />
+              <PropsRoute path='/members' component={Members} classes={classes} />
+              <PropsRoute path='/subjects' component={Subjects} classes={classes} />
+            </Switch>
+          </main>
       </div>
     </BrowserRouter>
     </ThemeProvider>
   </Provider>
 
-export default App;
+export default withStyles(styles)(App);

@@ -12,6 +12,7 @@ module.exports = {
       components: path.join(__dirname, 'src/components'),
       routers: path.join(__dirname, 'src/routers'),
       store: path.join(__dirname, 'src/store'),
+      styles: path.join(__dirname, 'src/styles'),
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.scss']

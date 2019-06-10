@@ -1,3 +1,3 @@
-import Members from './Members';
+import Members from './container/Members';
 
 export default Members;

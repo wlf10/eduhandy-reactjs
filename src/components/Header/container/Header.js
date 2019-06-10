@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 
 import Header from '../component/Header';
 import { OPEN_SIDEBAR } from 'store/ui/constants';

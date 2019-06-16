@@ -80,6 +80,23 @@ const Table = ({ classes, columns, data, title }) => {
             }, 600);
           }),
       }}
+      localization={{
+        header: {
+          actions: 'Действия'
+        },
+        body: {
+          addTooltip: 'Создать',
+          editTooltip: 'Редактировать',
+          deleteTooltip: 'Удалить'
+        },
+        toolbar: {
+          searchPlaceholder: 'Поиск'
+        },
+        pagination: {
+          labelDisplayedRows: '{from}-{to} из {count}',
+          labelRowsSelect: 'строк'
+        }
+      }}
     />
   );
 }

@@ -1,6 +1,6 @@
 {
   "name": "eduhandy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Timetable of classes",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/wlf10/eduhandy.git"
   },
-  "author": "",
+  "author": "Valeriy Malyshev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wlf10/eduhandy/issues"

@@ -1,44 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, makeStyles } from '@material-ui/core/styles';
+
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles(theme => ({
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  appBarSpacer: theme.mixins.toolbar,
-
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
-
-const Dashboard = () => {
-  //const theme = useTheme();
-  const classes = useStyles();
-
+const Dashboard = ({classes}) => {
   return (
-    <main className={classes.content}>
-        <div className={classes.toolbar} />
+    <Fragment>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
@@ -62,12 +29,12 @@ const Dashboard = () => {
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
-    </main>
+    </Fragment>
   );
 }
 
 Dashboard.propTypes = {
-  theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
-export default withTheme(Dashboard);
+export default Dashboard;

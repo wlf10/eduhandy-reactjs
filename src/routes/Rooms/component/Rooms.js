@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 
 import Table from 'components/Table';
 
-const Subjects = ({ classes, subjects }) => {
+const Rooms = ({ classes, rooms }) => {
   return (
     <Fragment>
       <Table
         classes={classes}
-        columns={subjects.columns}
-        data={subjects.data}
-        title="Предметы"
+        columns={rooms.columns}
+        data={rooms.data}
+        title="Кабинеты"
       />
     </Fragment>
   );
 }
 
-Subjects.propTypes = {
+Rooms.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default Subjects;
+export default Rooms;

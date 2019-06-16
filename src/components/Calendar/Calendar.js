@@ -178,7 +178,7 @@ class Calendar extends Component {
               label="Start time"
               type="time"
               fullWidth
-              minutesStep={5}
+              //minutesStep={5}
               value={this.state.start}
               onChange={this.handleStartTime}
             />
@@ -195,13 +195,13 @@ class Calendar extends Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Отмена
             </Button>
             <Button onClick={() => {
               this.setNewAppointment(), this.handleClose();
               }} color="primary"
             >
-              Add
+              Добавить
             </Button>
           </DialogActions>
         </Dialog>
@@ -262,7 +262,7 @@ class Calendar extends Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Отмена
             </Button>
             <Button
               secondary={true}
@@ -271,7 +271,7 @@ class Calendar extends Component {
                 this.deleteEvent(), this.handleClose();
               }}
             >
-              Delete
+              Удалить
             </Button>
             <Button
               onClick={() => {
@@ -279,7 +279,7 @@ class Calendar extends Component {
               }}
               color="primary"
             >
-              Confirm
+              Сохранить
             </Button>
           </DialogActions>
           {/*

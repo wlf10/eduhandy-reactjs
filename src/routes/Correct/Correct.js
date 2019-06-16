@@ -9,7 +9,6 @@ const Members = () => {
 
   return (
     <main className={classes.content}>
-        <div className={classes.toolbar} />
         <Typography paragraph>
             Тут изменения в расписании
         </Typography>

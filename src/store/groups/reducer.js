@@ -5,6 +5,17 @@ const initialState = {
     { title: 'Имя', field: 'name' },
   ],
   data: [
+    { name: 'АС-11'},
+    { name: 'ИС-11'},
+    { name: 'ИСП-11'},
+    { name: 'ТМ-11'},
+    { name: 'ТЭ-11'},
+    { name: 'ЭО-11'},
+    { name: 'ПСО-11'},
+    { name: 'АС-21'},
+    { name: 'ИСП-21'},
+    { name: 'ИС-21'},
+
     { name: 'ИС-31'},
     { name: 'ИС-41'},
   ],

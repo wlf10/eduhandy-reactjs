@@ -4,14 +4,16 @@ import Educations from './educations';
 import Members from './members';
 import Subjects from './subjects';
 import Groups from './groups';
+import Rooms from './rooms';
 import Ui from './ui';
 
 const AllReducers = combineReducers({
     educations: Educations,
+    rooms: Rooms,
     members: Members,
     groups: Groups,
-    subjects: Subjects,
-    ui: Ui
+    ui: Ui,
+    subjects: Subjects
 });
 
 export default AllReducers;

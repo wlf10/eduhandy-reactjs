@@ -26,7 +26,7 @@ import SubjectsIcon from '@material-ui/icons/Layers';
 import GroupIcon from '@material-ui/icons/Group';
 import RoomIcon from '@material-ui/icons/LocalLibrary';
 import TemplateIcon from '@material-ui/icons/DateRange';
-
+import EducationIcon from '@material-ui/icons/Domain';
 
 const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings, classes }) => {
   //const classes = useStyles();
@@ -84,6 +84,12 @@ const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings, classes
           <Collapse in={isOpenSettings} timeout="auto" unmountOnExit>
             <Divider />
             <List component="div" disablePadding>
+              <ListItem button key="templates" component={Link} to="/templates">
+                <ListItemIcon>
+                  <TemplateIcon />
+                </ListItemIcon>
+                <ListItemText primary="Расписание на неделю" />
+              </ListItem>
               <ListItem button key="members" component={Link} to="/members">
                 <ListItemIcon>
                   <PersonIcon />
@@ -108,11 +114,11 @@ const Sidebar = ({ isOpen, isOpenSettings, closeSidebar, toggleSettings, classes
                 </ListItemIcon>
                 <ListItemText primary="Кабинеты" />
               </ListItem>
-              <ListItem button key="template" component={Link} to="/template">
+              <ListItem button key="educations" component={Link} to="/educations">
                 <ListItemIcon>
-                  <TemplateIcon />
+                  <EducationIcon />
                 </ListItemIcon>
-                <ListItemText primary="Расписание на неделю" />
+                <ListItemText primary="Учебные заведения" />
               </ListItem>
             </List>
           </Collapse>

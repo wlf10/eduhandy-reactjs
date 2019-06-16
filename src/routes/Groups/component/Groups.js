@@ -1,5 +1,4 @@
-import React from 'react';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Table from 'components/Table';
@@ -7,7 +6,6 @@ import Table from 'components/Table';
 const Groups = ({ classes, groups }) => {
   return (
     <Fragment>
-      <div className={classes.toolbar} />
       <Table
         classes={classes}
         columns={groups.columns}

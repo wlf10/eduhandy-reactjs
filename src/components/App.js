@@ -6,9 +6,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme, withStyles } from '@material-ui/core/styles';
+import { fade, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import themes, { overrides } from '../themes';
-
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
 
@@ -16,10 +15,11 @@ import Dashboard from 'routes/Dashboard';
 import Schedule from 'routes/Schedule';
 import Correct from 'routes/Correct';
 
-import Settings from 'routes/Settings';
+import Templates from 'routes/Templates';
 import Subjects from 'routes/Subjects';
 import Members from 'routes/Members';
 import Groups from 'routes/Groups';
+import Rooms from 'routes/Rooms';
 import Educations from 'routes/Educations';
 
 import rootReducer from 'store';
@@ -105,6 +105,32 @@ const styles = {
     overflow: 'auto',
     flexDirection: 'column',
   },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: 200,
+    },
+  },
 };
 
 const renderMergedProps = (component, ...rest) => {
@@ -130,16 +156,18 @@ const App = ({classes}) =>
           <Header classes={classes} />
           <Sidebar classes={classes} />
           <main className={classes.content}>
+            <div className={classes.toolbar} />
             <Switch>
-              <Route exact path='/' component={Dashboard} />
-              <Route path='/schedule' component={Schedule} />
-              <Route path='/correct' component={Correct} />
+              <PropsRoute exact path='/' component={Dashboard} classes={classes} />
+              <PropsRoute path='/schedule' component={Schedule} classes={classes} />
+              <PropsRoute path='/correct' component={Correct} classes={classes} />
 
-              <Route path='/settings' component={Settings} />
-              <Route path='/educations' component={Educations} />
+              <PropsRoute path='/educations' component={Educations} classes={classes} />
               <PropsRoute path='/members' component={Members} classes={classes} />
               <PropsRoute path='/subjects' component={Subjects} classes={classes} />
               <PropsRoute path='/groups' component={Groups} classes={classes} />
+              <PropsRoute path='/rooms' component={Rooms} classes={classes} />
+              <PropsRoute path='/templates' component={Templates} classes={classes} />
             </Switch>
           </main>
       </div>

@@ -11,7 +11,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -59,6 +58,7 @@ class Header extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               EduHandy
             </Typography>
+
             {auth && (
               <div>
                 <IconButton

@@ -1,3 +1,3 @@
-import Educations from './Educations';
+import Educations from './container/Educations';
 
 export default Educations;

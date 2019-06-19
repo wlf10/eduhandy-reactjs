@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import Schedule from '../component/Schedule';
 
 const mapStateToProps = function(state) {
-  return {}
+  return {
+    schedule: state.schedule
+  }
 }
 
 const mapDispatchToProps = function(dispatch) {

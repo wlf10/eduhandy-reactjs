@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import Calendar from 'components/Calendar';
+import TimeTable from 'components/TimeTable';
 
-const Schedule = ({classes}) => {
+const Schedule = ({classes, schedule}) => {
   return (
     <Fragment>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Calendar />
+          <TimeTable events={schedule.events}/>
         </Grid>
       </Grid>
     </Fragment>

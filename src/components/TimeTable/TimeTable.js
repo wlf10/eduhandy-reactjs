@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import BigCalendar from 'react-big-calendar';
+import React, { Fragment } from "react";
+import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from "moment";
 
 import Dialog from '@material-ui/core/Dialog';
@@ -12,16 +12,71 @@ import Button from '@material-ui/core/Button';
 import FlatButton from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-require("react-big-calendar/lib/css/react-big-calendar.css");
-import './Calendar.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+//require("react-big-calendar/lib/css/react-big-calendar.css");
+import './TimeTable.css';
 
-const localizer = BigCalendar.momentLocalizer(moment)
+const localizer = momentLocalizer(moment)
 
+function Event({ event }) {
+  return (
+    <span>
+      <span>{event.subject}</span><br/>
+      <span>{event.teacher} / {event.room}</span>
+    </span>
+  )
+}
+
+function EventAgenda({ event }) {
+  return (
+    <span>
+      <em style={{ color: 'magenta' }}>{event.title}</em>
+      <p>{event.desc}</p>
+    </span>
+  )
+}
+
+const now = new Date();
+
+const TimeTable = ({events}) => {
+  console.log(events);
+  return (
+      <Calendar
+        localizer={localizer}
+        events={events}
+        showMultiDayTimes
+        defaultView="week"
+        step={15}
+        timeslots={8}
+        min={new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0)}
+        max={new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0)}
+        components={{
+          event: Event,
+          agenda: {
+            event: EventAgenda,
+          },
+        }}
+      />
+  );
+}
+
+{/*
 class Calendar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    var now = new Date(2019, 6, 16, 10, 30);
+    var now2 = new Date(2019, 6, 16, 12, 30);
+
     this.state = {
-      events: [],
+      events: [
+        {
+          title:'ОАиП / Чумаковская Т.И. / 313',
+          desc: 'ОАиП',
+          start: now,
+          end: now2
+        }
+      ],
       title: "",
       start: "",
       end: "",
@@ -129,7 +184,7 @@ class Calendar extends Component {
 
     return (
       <div id="Calendar">
-        {/* react-big-calendar library utilized to render calendar*/}
+
         <BigCalendar
           localizer={localizer}
           events={this.state.events}
@@ -140,9 +195,15 @@ class Calendar extends Component {
           selectable={true}
           onSelectEvent={event => this.handleEventSelected(event)}
           onSelectSlot={slotInfo => this.handleSlotSelected(slotInfo)}
+          components={{
+            event: Event,
+            agenda: {
+              event: EventAgenda,
+            },
+          }}
         />
 
-        {/* Material-ui Modal for booking new appointment */}
+        
         <Dialog
           modal={false}
           open={this.state.openSlot}
@@ -206,7 +267,7 @@ class Calendar extends Component {
           </DialogActions>
         </Dialog>
 
-        {/* Material-ui Modal for Existing Event */}
+       
         <Dialog
           modal={false}
           open={this.state.openEvent}
@@ -282,26 +343,10 @@ class Calendar extends Component {
               Сохранить
             </Button>
           </DialogActions>
-          {/*
-          <TimePicker
-            format="ampm"
-            floatingLabelText="Start Time"
-            minutesStep={5}
-            value={this.state.start}
-            onChange={this.handleStartTime}
-          />
-          <TimePicker
-            format="ampm"
-            floatingLabelText="End Time"
-            minutesStep={5}
-            value={this.state.end}
-            onChange={this.handleEndTime}
-          />
-          */}
         </Dialog>
       </div>
     );
   }
-}
+} */}
 
-export default Calendar;
+export default TimeTable;

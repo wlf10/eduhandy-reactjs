@@ -6,6 +6,7 @@ import Subjects from './subjects';
 import Groups from './groups';
 import Rooms from './rooms';
 import Ui from './ui';
+import Schedule from './schedule';
 
 const AllReducers = combineReducers({
     educations: Educations,
@@ -13,7 +14,8 @@ const AllReducers = combineReducers({
     members: Members,
     groups: Groups,
     ui: Ui,
-    subjects: Subjects
+    subjects: Subjects,
+    schedule: Schedule
 });
 
 export default AllReducers;
